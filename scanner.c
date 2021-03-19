@@ -1,5 +1,3 @@
-//#define _CRT_SECURE_NO_WARNINGS
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -59,14 +57,15 @@ Struct_Token lexm;
 int main(int argc, char *argv[]) { // lembrar de colocar por arg na linha de comando
 	Struct_Token tk;
 	FILE *arq;
-	//char nomeArquivo[15] = { "teste1.txt" };
-	arq = fopen(argv[1], "r");
+
+//	arq = fopen(argv[1], "r"); //execução via linha de comando
+	arq = fopen("teste.txt", "r"); //execução via programa 
 
 	while (!feof(arq)) {
 		tk = Scanner(arq);
-		/*if (tk.tipo != -1) {
-			printf("\n%s - %d ", lexm.lexema, lexm.tipo);
-		}*/
+		if (tk.tipo != -1) {
+			printf("\nToken:%s <----> Tipo:%d ", lexm.lexema, lexm.tipo);
+		}
 	}
 
 	fclose(arq);
